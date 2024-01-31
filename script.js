@@ -24,8 +24,7 @@ function calculateMetalCuts() {
 
     // Convert cutLength to mixed fraction for display
     const cutLengthMixedFraction = decimalToMixedFraction(cutLength);
-    let centers = calculatePostCenters(numberOfPosts, cutLength);
-    let centersDisplay = centers.join(', ');
+    let centersDisplay = calculatePostCenters(numberOfPosts, cutLength);
     document.getElementById('cutLengthResult').textContent = cutLengthMixedFraction;
     document.getElementById('gapsNumber').textContent = numberOfGaps;
     document.getElementById('postCenters').textContent = centersDisplay;
@@ -33,22 +32,15 @@ function calculateMetalCuts() {
 }
 
 function calculatePostCenters(numberOfPosts, cutLength) {
-    let centers = [];
-    let currentPosition = 0;
-
-    // Assuming the first post is at position 0
-    for (let i = 0; i < numberOfPosts; i++) {
-        if (i === 0 || i === numberOfPosts - 1) {
-            // Skip the first and last posts as per your requirement
-            currentPosition += cutLength + 2; // 2 inches for the post width
-            continue;
-        }
-        centers.push(currentPosition);
-        currentPosition += cutLength + 2; // Move to the next post position
+    if (numberOfPosts <= 2) {
+        return "No center post";
     }
 
-    return centers;
+    // Calculate the position of the first center
+    let firstCenter = cutLength + 1; // Position after the first post
+    return decimalToMixedFraction(firstCenter);
 }
+
 
 function parseFraction(fractionString) {
     const parts = fractionString.split('/');
