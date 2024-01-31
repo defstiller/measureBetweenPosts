@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Wall Spaces And Cuts Calculator</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Wall Spaces And Cuts Calculator</h1>
+        <form id="wallMeasurementForm">
+            <label for="firstPostSize">First Post Size (inches):</label>
+<select id="firstPostSize">
+    <option value="2" selected>2 inches</option>
+    <option value="1">1 inch</option>
+    <option value="3">3 inches</option>
+</select>
+<br>
+<label for="lastPostSize">Last Post Size (inches):</label>
+<select id="lastPostSize">
+    <option value="2" selected>2 inches</option>
+    <option value="1">1 inch</option>
+    <option value="3">3 inches</option>
+</select>
+<br>
+
+            <label for="wallLength">Wall Length (inches):</label>
+            <input type="number" id="wholeWall" required>
+            <input type="text" id="fractionalWall" required>
+            <!-- <input type="number" id="wallLength" required> -->
+            <br>
+            <label for="numberOfPosts">Number of Posts:</label>
+            <input type="number" id="numberOfPosts" required>
+            <br>
+            <button type="button" onclick="calculateMetalCuts()">Calculate</button>
+        </form>
+        <div id="results">
+            <p>Metal Cut Length Between Posts: <span id="cutLengthResult"></span> inches</p>
+            <p>Number of openings: <span id="gapsNumber"></span> openings</p>
+            <p>Centers of Posts: <span id="postCenters"></span> inches</p>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
